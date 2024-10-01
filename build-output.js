@@ -1,7 +1,8 @@
 import { register } from "@tokens-studio/sd-transforms";
 import StyleDictionary from "style-dictionary";
 
-register(StyleDictionary);
+// Registrera transform med plattform 'css' (standard)
+register(StyleDictionary, { platform: 'css' });
 
 const VARIABLES = [
   { set: "core", destination: "core" },
@@ -46,6 +47,19 @@ const getCssConfig = ({
   outputReferences,
   selector,
 }) => ({
+  transforms: [
+    "ts/descriptionToComment",
+    "ts/opacity",
+    "ts/size/lineheight",
+    "ts/typography/fontWeight", // Uppdaterat transform-namn
+    "ts/color/modifiers",
+    "ts/size/css/letterspacing",
+    "ts/color/css/hexrgba",
+    "border/css/shorthand", // Använd den inbyggda Style Dictionary-transformen
+    "typography/css/shorthand", // Använd den inbyggda Style Dictionary-transformen
+    "shadow/css/shorthand", // Använd den inbyggda Style Dictionary-transformen
+    "name/kebab", // Denna är korrekt
+  ],
   prefix: "ehm",
   buildPath: `css/${buildPathSubdirectory}/`,
   files: [
