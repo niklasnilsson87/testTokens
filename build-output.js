@@ -1,44 +1,13 @@
 import { register } from "@tokens-studio/sd-transforms";
 import StyleDictionary from "style-dictionary";
 
-// Registrera transform med plattform 'css' (standard)
 register(StyleDictionary, { platform: 'css' });
 
 const VARIABLES = [
-  { set: "core", destination: "core" },
-  { set: "semantic", references: ["core"] },
-  {
-    set: "semantic.light",
-    references: ["core"],
-  },
-  {
-    set: "semantic.dark",
-    selector: '.dark',
-    references: ["core"],
-  },
-  {
-    set: "component",
-    references: ["core", "semantic", "semantic.light", "semantic.dark"],
-  },
+  { set: "core", destination: "core", outputReferences: false },
+  { set: "brand", destination: "brand", references: ["core"], outputReferences: true },
 ];
 
-const THEMES = [
-  {
-    set: "component",
-    output: "light",
-    references: ["core", "semantic", "semantic.light"],
-  },
-  {
-    set: "component",
-    output: "dark",
-    selector: '.dark',
-    references: ["core", "semantic", "semantic.dark"],
-  },
-];
-
-/**
- * Get common css config for style dictionary
- */
 const getCssConfig = ({
   buildPathSubdirectory,
   destination,
@@ -51,17 +20,17 @@ const getCssConfig = ({
     "ts/descriptionToComment",
     "ts/opacity",
     "ts/size/lineheight",
-    "ts/typography/fontWeight", // Uppdaterat transform-namn
+    "ts/typography/fontWeight",
     "ts/color/modifiers",
     "ts/size/css/letterspacing",
     "ts/color/css/hexrgba",
-    "border/css/shorthand", // Använd den inbyggda Style Dictionary-transformen
-    "typography/css/shorthand", // Använd den inbyggda Style Dictionary-transformen
-    "shadow/css/shorthand", // Använd den inbyggda Style Dictionary-transformen
-    "name/kebab", // Denna är korrekt
+    "border/css/shorthand",
+    "typography/css/shorthand",
+    "shadow/css/shorthand",
+    "name/kebab",
   ],
   prefix: "ehm",
-  buildPath: `css/${buildPathSubdirectory}/`,
+  buildPath: buildPathSubdirectory,
   files: [
     {
       destination: `_${destination}.css`,
@@ -76,60 +45,39 @@ const getCssConfig = ({
   ],
 });
 
-/**
- * Build token set variables
- */
-VARIABLES.forEach(({ set, selector, references }) => {
-  const buildPathSubdirectory = "variables";
-  const filter = (token) => token.isSource;
+VARIABLES.forEach(({ set, destination, references, outputReferences }) => {
+  const buildPathSubdirectory = "css/variables/";
+
+  const filter = (token) =>
+    set === 'brand'
+      ? token.filePath.includes('brand') 
+      : token.filePath.includes(set);
+
   const referenceNotice = references?.length
     ? ["", `References variables: ${references.join(", ")}`]
     : [];
+
   const fileHeader = (defaultMessage) => [
     ...defaultMessage,
     ...referenceNotice,
   ];
 
-  // Skapa en ny instans av StyleDictionary
-  const sd = new StyleDictionary({
-    include: references?.map((set) => `tokens/${set}.js`),
+  const allRefs = references?.map((refSet) => `tokens/${refSet}.js`)
+
+  const SD = new StyleDictionary({
+    include: allRefs,
     source: [`tokens/${set}.js`],
     platforms: {
       css: getCssConfig({
         buildPathSubdirectory,
-        destination: set,
+        destination: destination,
         filter,
         fileHeader,
-        outputReferences: true,
-        selector,
-      })
+        outputReferences,
+      }),
     },
   });
 
-  sd.cleanAllPlatforms();
-  sd.buildAllPlatforms();
-});
-
-/**
- * Build themes
- */
-THEMES.forEach(({ set, output, selector, references }) => {
-  const buildPathSubdirectory = "theme";
-  
-  // Skapa en ny instans av StyleDictionary
-  const sd = new StyleDictionary({
-    include: references?.map((set) => `tokens/${set}.js`),
-    source: [`tokens/${set}.js`],
-    platforms: {
-      css: getCssConfig({
-        buildPathSubdirectory,
-        destination: output,
-        outputReferences: true,
-        selector,
-      })
-    },
-  });
-
-  sd.cleanAllPlatforms();
-  sd.buildAllPlatforms();
+  SD.cleanAllPlatforms();
+  SD.buildAllPlatforms();
 });

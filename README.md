@@ -1,15 +1,10 @@
-# Basic Style Dictionary
+# Ehm Bibliotek för design tokens
 
-This example code is bare-bones to show you what this framework can do. If you have the style-dictionary module installed globally, you can `cd` into this directory and run:
 
-```bash
-npx style-dictionary build
-```
+En enkel PoC för att hantera design tokens som har blivit exporterad via Figma Token Studio.
 
-Otherwise, install Style Dictionary locally for this project first, `cd` into this directory and run:
+## Figma (Token Studio)
 
-```bash
-npm init -y && npm install style-dictionary
-```
+Design tokens som ligger i `tokens/tokens.studio.json` är genererade i Figma med pluginet Token Studio. Tanken var att kunna bryta ut dessa tokens i olika nivåer ex (core, brand, components). Det visar sig att Token Studio tar betalt för att kunna hantera teman så i denna PoC så har jag strukturerat upp dom olika nivåerna i json.
 
-and then run the above command.
+

@@ -1,5 +1,10 @@
 {
   "type": "module",
+
+  "scripts": {
+    "build": "node build-output.js",
+    "css:calc": "node css.calc.js"
+  },
   "dependencies": {
     "@tokens-studio/sd-transforms": "^1.2.5"
   }

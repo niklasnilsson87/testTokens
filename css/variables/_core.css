@@ -1,0 +1,61 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root {
+  --ehm-core-spacing-xs: 4px;
+  --ehm-core-spacing-sm: calc(4px*2);
+  --ehm-core-spacing-md: calc(4px*3);
+  --ehm-core-spacing-lg: calc(4px*4);
+  --ehm-core-spacing-xl: calc(4px*5);
+  --ehm-core-spacing-xxl: calc(4px*6);
+  --ehm-core-border-radius-xs: 4px;
+  --ehm-core-border-radius-sm: calc(4px*2);
+  --ehm-core-border-radius-md: calc(4px*3);
+  --ehm-core-border-radius-lg: calc(4px*4);
+  --ehm-core-border-radius-xl: calc(4px*5);
+  --ehm-core-border-radius-xxl: calc(4px*6);
+  --ehm-core-colors-grey-0: #FFFFFF;
+  --ehm-core-colors-grey-50: #FAFAFA;
+  --ehm-core-colors-grey-100: #F5F5F5;
+  --ehm-core-colors-grey-500: #9E9E9E;
+  --ehm-core-colors-grey-600: #757575;
+  --ehm-core-colors-grey-700: #616161;
+  --ehm-core-colors-grey-800: #424242;
+  --ehm-core-colors-grey-900: #212121;
+  --ehm-core-colors-pink-50: #f7e3ed;
+  --ehm-core-colors-pink-100: #ecb8d4;
+  --ehm-core-colors-pink-200: #e28ab7;
+  --ehm-core-colors-pink-300: #d95c9a;
+  --ehm-core-colors-pink-400: #d43884;
+  --ehm-core-colors-pink-500: #d0076e;
+  --ehm-core-colors-pink-600: #bf0a69;
+  --ehm-core-colors-pink-700: #a90d62;
+  --ehm-core-colors-pink-800: #940e5c;
+  --ehm-core-colors-pink-900: #6e0e50; /* Primär */ /* Primär */
+  --ehm-core-colors-yellow-50: #FFF8EB; /* sekundär komp */ /* sekundär komp */
+  --ehm-core-colors-yellow-100: #FFECC4;
+  --ehm-core-colors-yellow-200: #FFE098; /* sekundär */ /* sekundär */
+  --ehm-core-colors-yellow-300: #F7E483;
+  --ehm-core-colors-yellow-400: #F6DF6C;
+  --ehm-core-colors-yellow-500: #F4D959;
+  --ehm-core-colors-yellow-600: #F0C955;
+  --ehm-core-colors-yellow-700: #EAB34E;
+  --ehm-core-colors-yellow-800: #E49D47;
+  --ehm-core-colors-yellow-900: #D97A3B;
+  --ehm-core-opacity-none: 0;
+  --ehm-core-opacity-min: 0.1;
+  --ehm-core-opacity-low: 0.3;
+  --ehm-core-opacity-md: 0.5;
+  --ehm-core-opacity-high: 0.7;
+  --ehm-core-opacity-max: 0.9;
+  --ehm-core-font-families-public-sans: Public sans, Arial;
+  --ehm-core-font-weights-regular: 400;
+  --ehm-core-font-weights-semi-bold: 600;
+  --ehm-core-font-weights-bold: 700;
+  --ehm-core-font-sizes-xl: calc(16px * 1.5);
+  --ehm-core-font-sizes-lg: calc(16px * 1.25);
+  --ehm-core-font-sizes-body: 16px;
+  --ehm-core-font-sizes-sm: calc(16px * 0.85);
+  --ehm-core-font-sizes-xs: calc(16px * 0.65);
+}

@@ -1,0 +1,17 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ * 
+ * References variables: core
+ */
+
+:root {
+  --ehm-brand-color-border-secondary: var(--ehm-core-colors-pink-900);
+  --ehm-brand-color-border-primary: var(--ehm-core-colors-grey-500);
+  --ehm-brand-color-background-tertiary: var(--ehm-core-colors-yellow-50);
+  --ehm-brand-color-background-secondary: var(--ehm-core-colors-grey-900);
+  --ehm-brand-color-background-primary: var(--ehm-core-colors-grey-50);
+  --ehm-brand-color-text-tertiary: var(--ehm-core-colors-pink-900);
+  --ehm-brand-color-text-secondary: var(--ehm-core-colors-grey-0);
+  --ehm-brand-color-text-primary: var(--ehm-core-colors-grey-900);
+  --ehm-brand-typography-body: var(--ehm-core-font-weights-regular) var(--ehm-core-font-sizes-body) var(--ehm-core-font-families-public-sans);
+}
