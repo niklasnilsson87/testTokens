@@ -1,19 +1,15 @@
-# Ehm Bibliotek för design token
+## Exempel på användning utav Design Tokens
+Syftet med detta är att skapa en länk mellan UX/UI-design och utveckling.
 
-En enkel PoC för att hantera design tokens som har blivit exporterad via Figma Token Studio.
+## Design Tokens-bibliotek
+Detta är ett enkelt proof of concept (PoC) för att hantera design tokens som har exporterats via Figma-pluginet Token Studio.
 
-## Figma (Token Studio)
+### Figma och Token Studio
+Design tokens skapas i Figma med pluginet Token Studio och fungerar som en "källa till sanning" (source of truth). Tanken är att dela upp tokens i olika nivåer, till exempel core, brand och components. Eftersom Token Studio kräver betalning för att hantera teman, har jag i denna PoC strukturerat de olika nivåerna i JSON-format för att programmatiskt extrahera nycklar, i detta fall core och brand.
 
-Design tokens är skapade i Figma via ett plugin som heter Token Studio och används som source of truth.
-Tanken var att kunna bryta ut dessa tokens i olika nivåer ex (core, brand, components). Det visar sig att Token Studio tar betalt för att kunna hantera teman så i denna PoC så har jag strukturerat upp dom olika nivåerna i json för att programatiskt då plocka ut nycklar. I detta fallet core och brand.
+Token Studio kan kopplas till Github eller Gitlab för att designers ska kunna synkronisera och skicka ändringar till ett repository.
 
-I Token studio så kan vi koppla ihop en sync process via github/gitlab så att en designer har rätt att pusha till ett repositorie. 
+### Github
+På Github läggs dessa tokens i en token-katalog när man skickar till main-branchen.
 
-## Github
-
-På github tas dessa tokens emot och läggs i [token katalogen](https://github.com/niklasnilsson87/testTokens/blob/main/tokens/tokens.studio.json) om man pushar till `main`-branchen.
-
-Vi måste köra ett script för att omvandla dessa tokens till css variabler och det gör vi med hjälp av [Style Dictionary](https://styledictionary.com/getting-started/installation/).
-
-Resultatet ser ni under mappen css/variables
-
+Ett script används för att omvandla tokens till CSS-variabler med hjälp av verktyget Style Dictionary. Resultatet finns i mappen css/variables.
